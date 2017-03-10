@@ -1,0 +1,7 @@
+.div1 {
+/* 	background: #ff0000 url(/study-front-end/resources/images/eg_bg_03.gif) no-repeat fixed center;	 */
+	background-color: black;
+	background-repeat: no-repeat;
+	background-image: url("/study-front-end/resources/images/eg_bg_03.gif");
+	height: 1600px;
+}
