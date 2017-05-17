@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<title>浮层demo</title>
+<style>
+.fuceng {
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: grey;
+	opacity: 0.5;
+	z-index: 10000;
+}
+.dialog {
+	#display: flex;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 80%;
+	height: 60%;
+	margin: auto;
+	background-color: white;
+	z-index: 10010;
+	min-width: 320px;
+	max-width: 650px;
+}
+.imgdiv {
+	overflow: auto;
+	padding: 10px;
+	border: 1px solid Silver;
+}
+.img {
+	width: 100%;
+}
+.close {
+	float: right;
+	border: none;
+	background-color: white;
+	opacity: 0.7;
+	font-size: 24px;
+	padding: 5px;
+	cursor: pointer;
+}
+.title {
+	margin: 0px;
+	padding: 10px;
+}
+.footer {
+	margin: 0px;
+	padding: 10px;
+}
+</style>
+<script>
+$(function() {
+	var hideAll = function() {
+		$('.fuceng').hide();
+		$('.dialog').hide();
+	}
+	var showAll = function() {
+		$('.fuceng').show();
+		$('.dialog').show();
+	}
+	var setImgDivHeight = function() {
+		// 计算imgdiv高度
+		var height = {};
+		height.dialog = $('.dialog').outerHeight();
+		height.title = $('.title').outerHeight();
+		height.footer = $('.footer').outerHeight();
+		$('.imgdiv').outerHeight(height.dialog - height.title - height.footer);
+	}
+	
+	setImgDivHeight();	
+	hideAll();
+	
+	$('#showDemo').click(function() {
+		showAll();
+	});
+	$('.close').click(function() {
+		hideAll();
+	});
+	$('.fuceng').click(function() {
+		hideAll();
+	});
+	$(window).resize(setImgDivHeight);
+});
+</script>
+</head>
+<body>
+<button id="showDemo">点我显示浮层demo</button>
+<div class="fuceng"></div>
+<div class="dialog">
+	<div class="close">&times;</div>
+	<h1 class="title">A set of pictures</h1>
+	<div class="imgdiv">
+		<img class="img" src="timg.jpg">
+	</div>
+	<p class="footer">
+		Pictures © by Fatrik Powalowsk1.
+	</p>
+</div>
+</body>
+</html>
