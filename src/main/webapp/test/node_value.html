@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function test() {
+  var hello = document.getElementById('hello');
+  for (var i = 0; i < hello.childNodes.length; i++) {
+    console.log(hello.childNodes[i].nodeType);
+  }
+}
+window.onload = test;
+</script>
+</head>
+<body>
+  <p id="hello">hello</p>
+</body>
+</html>
